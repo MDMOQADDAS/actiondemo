@@ -25,3 +25,7 @@ input{
 ::placeholder {
   color: rgb(247, 247, 72);
 }
+
+.greet-div{
+  color: white;
+}
