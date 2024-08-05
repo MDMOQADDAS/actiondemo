@@ -1,29 +1,57 @@
-
-
-body{
+body {
   margin: 0;
   padding: 0;
-  background-color: black;
+  background-color: rgb(33, 33, 33);
+  font-family: "Poppins", sans-serif;
 }
 .form-style{
   padding: 8px 16px;
-  
 }
+
 h1{
-  color: rgb(58, 223, 238);
+  color: rgb(248, 248, 248);
 }
+
 input{
-  border: 2px dotted rgb(4, 221, 240);
+  /* border: 2px dotted rgb(208, 208, 208); */
+  border-radius: 5px;
   width: 200px;
   outline: none;
- background-color: black;
- color: rgb(58, 223, 238);
-  
+ background-color: rgb(86, 86, 86);
+ color: rgb(50, 50, 50);
   padding: 4px 8px;
 }
 
+.submit{
+  padding: 5px 10px;
+  background-color: rgb(39, 109, 39);
+  border-radius: 5px;
+  font-weight: 600;
+  color: white;
+  /* border: 0; */
+}
+
+.custom {
+  box-shadow: 3px 4px 15px rgb(74, 74, 74);
+  width: max-content;
+  padding: 1rem;
+  border-radius: 10px;
+  margin: 5rem auto;
+}
+
+.input-style {
+  margin: auto;
+  border: 0;
+  width: 200px;
+  outline: none;
+  background-color: rgb(84, 84, 84);
+  border-radius: 5px;
+  color: rgb(248, 248, 248);
+  padding: 10px;
+}
+
 ::placeholder {
-  color: rgb(247, 247, 72);
+  color: rgb(141, 141, 141);
 }
 
 .greet-div{
