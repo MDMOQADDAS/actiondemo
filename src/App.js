@@ -10,6 +10,8 @@ function App() {
     const name = events.target.elements.name.value;
     const email = events.target.elements.email.value;
 
+    console.log(process.env.REACT_APP_BACKEND_URL)
+
     axios.post( process.env.REACT_APP_BACKEND_URL , ({ name, email })).then((response => {
       console.log(response.data)
     })).catch((error) => {
