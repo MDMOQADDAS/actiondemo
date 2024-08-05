@@ -14,7 +14,7 @@ function App() {
 
   return (
     <div>
-      { isSubmitted ?<Greeting /> : <Form /> }
+      { isSubmitted ?<Greeting /> : <Form isSubmitted={false} /> }
     
     </div>
   );
