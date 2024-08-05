@@ -1,7 +1,7 @@
 import React from "react";
 import axios from 'axios';
 
-function Form({ setIsSubmitted }) {
+function Form({ setIsSubmitted , setName }) {
   function handleOnSubmit(events) {
     events.preventDefault();
 
@@ -9,10 +9,13 @@ function Form({ setIsSubmitted }) {
     const email = events.target.elements.email.value;
 
     axios.post(process.env.REACT_APP_BACKEND_URL, ({ name, email })).then((response => {
-      console.log(response.data)
+      console.log(response.data.name)
       // this is block where i come to know
       //data inserted successfully
       setIsSubmitted(true);
+      setName(response.data.name);
+
+
     })).catch((error) => {
       console.log(error)
       // data not inserted

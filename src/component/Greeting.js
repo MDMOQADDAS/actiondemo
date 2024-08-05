@@ -1,9 +1,10 @@
 import React from "react";
 
-function Greeting(){
+function Greeting(props){
+
     return(
         <div className="greet-div custom">
-            <h2> Hi Intern 😊 </h2>
+            <h2> Hi {props.name} 👋🏼</h2>
         </div>
     )
 }
