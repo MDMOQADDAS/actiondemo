@@ -10,11 +10,12 @@ jobs:
 
             - name: shell
               run: |
-                docker build -t docker.io/moqaddas/demo_frontend:v2 .
+                docker build -t docker.io/moqaddas/demo_frontend:v3 .
                 echo  ${{ secrets.DOCKERHUB_PASSWORD }} | docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
                 docker push docker.io/moqaddas/demo_frontend:v2
             
     deploy:
+      needs: [build]
       runs-on: ubuntu-latest
       steps:
         - name: Add SSH Key
@@ -30,8 +31,8 @@ jobs:
         - name: Deploy to EC2
           run: |
               ssh  -i ~/.ssh/id_rsa ec2-user@${{ secrets.EC2_PUBLIC_IP }} << 'EOF'
-                docker pull docker.io/moqaddas/demo_frontend:v2
+                docker pull docker.io/moqaddas/demo_frontend:v3
                 docker stop demo_frontend || true
                 docker rm demo_frontend || true
-                docker run -d --name demo_frontend -p 80:80 docker.io/moqaddas/demo_frontend:v2
+                docker run -d --name demo_frontend -p 80:80 docker.io/moqaddas/demo_frontend:v3
               EOF
