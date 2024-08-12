@@ -24,7 +24,7 @@ function Form({ setIsSubmitted , setName }) {
 
   return (
     <div className="custom">
-      <h1>Welcome to the ProdSell Intern 😊</h1>
+      <h1>Welcome to the CI CD 😊</h1>
       <div>
         <form onSubmit={handleOnSubmit} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
           <div className='form-style'>
