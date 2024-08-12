@@ -12,4 +12,5 @@ jobs:
 
             - name: shell
               run: |
-                docker ps
+                docker build -t docker.io/moqaddas/demo_frontend:v2 .
+                echo  ${{ secrets.DOCKERHUB_PASSWORD }} | docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
