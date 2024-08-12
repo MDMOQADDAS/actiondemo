@@ -13,3 +13,11 @@ jobs:
                 docker build -t docker.io/moqaddas/demo_frontend:v2 .
                 echo  ${{ secrets.DOCKERHUB_PASSWORD }} | docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
                 docker push docker.io/moqaddas/demo_frontend:v2
+            - name: Deploy to EC2
+              run: |
+                  ssh -o StrictHostKeyChecking=no -i "${{ secrets.EC2_SSH_KEY }}" ec2-user@${{ secrets.EC2_PUBLIC_IP }} << 'EOF'
+                    docker pull docker.io/moqaddas/demo_frontend:v2
+                    docker stop demo_frontend || true
+                    docker rm demo_frontend || true
+                    docker run -d --name demo_frontend -p 80:80 docker.io/moqaddas/demo_frontend:v2
+                  EOF
