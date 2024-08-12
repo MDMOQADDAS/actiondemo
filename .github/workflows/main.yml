@@ -1,0 +1,17 @@
+name: CI CD Pipeline
+
+on:
+    push:
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Clone Code
+              uses: actions/checkout@v4
+
+            - name: shell
+              run: |
+                ls -a
+                pwd
+                cat /etc/os-release
