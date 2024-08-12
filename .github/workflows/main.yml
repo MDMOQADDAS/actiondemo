@@ -12,6 +12,4 @@ jobs:
 
             - name: shell
               run: |
-                ls -a
-                pwd
-                cat /etc/os-release
+                docker ps
